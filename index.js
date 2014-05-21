@@ -1,4 +1,9 @@
-// forked from dice's "GURUGURU (3d rotation)" http://jsdo.it/dice/l08r
+// ///////////////////////////////////////////////////////////
+// Interactive 3D Vector Equilibrium in Rainbow Space ///////
+// http://michaelgaio.com/lab/html5/ve1
+// ///////////////////////////////////////////////////////////
+// adapted from dice's "GURUGURU (3d rotation)" http://jsdo.it/dice/l08r
+
 var cos = Math.cos;
 var sin = Math.sin;
 var trad = Math.PI / 180;
