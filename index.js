@@ -62,7 +62,7 @@ function checkFPS(){
     oldtime = now;
     frameCnt = 0;
   }
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "grey";
   ctx.fillText("FPS: " + fps +"/" + framerate, 10, 20);
 }
 
@@ -70,6 +70,7 @@ var lPosX = (centerX-width*0.25);
 var lPosY = (centerY-width*0.3);
 var grad, brn;
 
+// MAIN LOOP ///////////////////////////////////////////////////////////////////
 function drawing(){
   ctx.fillStyle = "rgba(0,0,0,1)"; // background, 0.8 : trail
   ctx.fillRect(0,0,465,465);
@@ -90,7 +91,14 @@ function drawing(){
     grad.addColorStop(0.5,"rgba("+(p.r * brn >> 0)+","+(p.g * brn >> 0)+","+(p.b * brn >> 0)+",1)");
     grad.addColorStop(0.6,"rgba("+(p.r * brn >> 0)+","+(p.g * brn >> 0)+","+(p.b * brn >> 0)+",1)");
     grad.addColorStop(1,"rgba(0,0,0,1)");
-    drawCircle(p.x, p.y, w, grad, brn);
+   
+    // lines
+    ctx.beginPath();
+	ctx.moveTo(232,232);
+	ctx.lineTo(p.x + 232,p.y + 232);
+	ctx.stroke();
+	
+	drawCircle(p.x, p.y, w, grad, brn);
   }
   checkFPS();
 }
@@ -98,12 +106,11 @@ function drawing(){
 var r360 = Math.PI * 2;
 function drawCircle(x, y, w, col, b){
   ctx.beginPath();
-  ctx.strokeStyle = "rgba("+(255 * b >> 0)+","+(255 * b >> 0)+","+(255 * b >> 0)+",1)";
+  ctx.strokeStyle = "rgba("+(255 * b >> 0)+","+(255 * b >> 0)+","+(255 * b >> 0)+",0.25)";
   ctx.fillStyle = col;
   ctx.arc(x + centerX, y + centerY, w, 0, r360, true);
   ctx.fill();
   ctx.stroke();
-
 }
 
 function randomInt(n){
